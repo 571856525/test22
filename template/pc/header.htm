@@ -1,0 +1,37 @@
+<header>
+  <div class="top_menu">
+    <div class="container"><span class="top_name">{eyou:global name='web_attr_1' /}</span>
+    {notempty name="$eyou.global.web_language_switch"}
+      <div class="language">{eyou:lang name='lang25' /}：
+      {eyou:language type='list'}
+      <a href="{$field.url}" title="{$field.title}"><img src="{$field.logo}" alt="{$field.title}">{$field.title}</a> 
+       {eyou:eq name='$i' value='1'}<img src="{eyou:global name='web_templets_pc' /}/skin/img/topline.gif" alt="line"> {/eyou:eq}
+      {/eyou:language} 
+      </div>
+    {/notempty}  
+    </div>
+  </div>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+         <a href="{eyou:global name='web_cmsurl' /}"><img src="{eyou:global name='web_logo' /}" class="logo" alt="{eyou:global name='web_name' /}"/></a></div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-nav-c">
+          <li><a href="{eyou:global name='web_cmsurl' /}" {eyou:eq name='$Think.const.CONTROLLER_NAME' value='Index'}class="cur"{/eyou:eq}>{eyou:lang name='sys1' /}</a></li>
+           {eyou:channel type="top" row="9" id="field" currentstyle="cur"}
+          <li {eyou:notempty name="$field.children"}class="dropdown"{/eyou:notempty}> <a href="{$field.typeurl}"  class="{$field.currentstyle}">{$field.typename}</a>{eyou:notempty name="$field.children"} <a href="{$field.typeurl}" id="app_menudown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-down btn-xs"></span></a>
+            <ul class="dropdown-menu nav_small" role="menu">
+              {eyou:channel name="$field.children" row="100" id="field2"}
+              <li><a href="{$field2.typeurl}">{$field2.typename}</a></li>
+              {/eyou:channel}
+            </ul>
+            {/eyou:notempty}
+          </li>
+          {/eyou:channel}
+        </ul>
+      </div>
+      <!--/.nav-collapse --></div>
+  </nav>
+</header>

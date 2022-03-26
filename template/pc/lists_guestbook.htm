@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta name="applicable-device"content="pc,mobile">
+{eyou:static file="skin/css/bootstrap.css" /}
+{eyou:static file="skin/css/bxslider.css" /}
+{eyou:static file="skin/css/style.css" /}
+{eyou:static file="skin/js/jquery.min.js" /}
+{eyou:static file="skin/js/bxslider.min.js" /}
+{eyou:static file="skin/js/common.js" /}
+{eyou:static file="skin/js/bootstrap.js" /}
+<!--[if lt IE 9]>
+{eyou:static file="skin/js/html5shiv.min.js" /}
+{eyou:static file="skin/js/respond.min.js" /}
+<![endif]-->
+
+</head>
+<body>
+{eyou:include file="header.htm" /}
+<div class="page_bg" style="background: url({eyou:ad aid='3'}{$field.litpic}{/eyou:ad}) center top no-repeat;"></div>
+<!-- main -->
+<div class="container">
+  <div class="row"><!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+      <div class="list_box">
+        <h2 class="left_h2">{$eyou.field.typename}</h2>
+        <div class="feedback">
+          {eyou:guestbookform type='default'}
+          <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{$field.action}" onsubmit="return checkForm();">
+            <div class="form-group">
+              <label for="username" class="col-sm-3 control-label">{$field.itemname_1}：</label>
+              <div class="col-sm-6">
+                <input type="text" name="{$field.attr_1}" class="form-control" id="attr_1" placeholder="{eyou:lang name='lang49' /}*">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tel" class="col-sm-3 control-label">{$field.itemname_2}：</label>
+              <div class="col-sm-6">
+                <input type="text" name="{$field.attr_2}" class="form-control" id="attr_2" placeholder="{eyou:lang name='lang49' /}*">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail" class="col-sm-3 control-label">{$field.itemname_3}：</label>
+              <div class="col-sm-6">
+                <input type="email" name="{$field.attr_3}" class="form-control" id="attr_3">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contents" class="col-sm-3 control-label">{$field.itemname_4}：</label>
+              <div class="col-sm-6">
+                <textarea name="{$field.attr_4}" class="form-control" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-10">
+                <button type="submit" name="submit" value="{eyou:lang name='lang51' /}" class="btn btn-danger page-btn">{eyou:lang name='lang51' /}</button>
+                &nbsp;
+                <button type="reset" name="reset" class="btn btn-default grey-btn">{eyou:lang name='lang53' /}</button>
+              </div>
+            </div>
+          {$field.hidden}
+          </form>
+          <script type="text/javascript">
+            function checkForm()
+            {
+              if(document.getElementById('attr_1').value.length == 0)
+              {
+                alert('{eyou:lang name='lang55' /}{$field.itemname_1}');
+                return false;
+              }
+              if(document.getElementById('attr_2').value.length == 0)
+              {
+                alert('{eyou:lang name='lang55' /}{$field.itemname_2}');
+                return false;
+              }
+              
+              return true;
+            }
+          </script>
+        {/eyou:guestbookform}
+        </div>
+      </div>
+    </div>
+    <!-- left -->
+    {eyou:include file="left_a.htm" /}
+  </div>
+</div>
+{eyou:include file="footer.htm" /}
+</body>
+</html>

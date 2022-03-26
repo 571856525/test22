@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta name="applicable-device"content="pc,mobile">
+{eyou:static file="skin/css/bootstrap.css" /}
+{eyou:static file="skin/css/bxslider.css" /}
+{eyou:static file="skin/css/style.css" /}
+{eyou:static file="skin/js/jquery.min.js" /}
+{eyou:static file="skin/js/bxslider.min.js" /}
+{eyou:static file="skin/js/common.js" /}
+{eyou:static file="skin/js/bootstrap.js" /}
+<!--[if lt IE 9]>
+{eyou:static file="skin/js/html5shiv.min.js" /}
+{eyou:static file="skin/js/respond.min.js" /}
+<![endif]-->
+{eyou:static file="skin/css/lightbox.css" /}
+{eyou:static file="skin/js/lightbox.js" /}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.showpic_flash').bxSlider({
+		  pagerCustom: '#pic-page',
+		   adaptiveHeight: true,
+		});
+
+	});
+</script>
+</head>
+<body id="product">
+{eyou:include file="header.htm" /}
+<div class="page_bg" style="background: url({eyou:ad aid='3'}{$field.litpic}{/eyou:ad}) center top no-repeat;"></div>
+<!-- main -->
+<div class="container">
+  <div class="row"><!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+      <div class="list_box">
+        <h2 class="left_h2">{$eyou.field.typename}</h2>
+        <!-- showpic -->
+        <h1 class="contents_title">{$eyou.field.title}</h1>
+        <div class="col-sm-11 col-md-8 col-md-offset-2" style="margin-bottom:30px; margin-top:20px;">
+         
+          <ul class="showpic_flash">
+            {eyou:volist name="$eyou.field.image_list"}
+            <li><a class="example-image-link" href="{$field.image_url}" data-lightbox="example-set" target="_blank"><img class="example-image" src="{$field.image_url}" alt="{$eyou.field.title}"/></a></li>
+            {/eyou:volist}
+          </ul>
+          <div id="pic-page">{eyou:volist name="$eyou.field.image_list"} <a data-slide-index="{$key}" href="{$field.image_url}"><img src="{$field.image_url}" alt="{$eyou.field.title}" /></a> {/eyou:volist}</div>
+        </div>
+        <div class="product_con">{$eyou.field.content} </div>
+        <div class="point">
+        <span class="to_prev col-xs-12 col-sm-6 col-md-6">
+        {eyou:prenext get='pre'}
+        <a href="{$field.arcurl}" title="{$field.title}"> {eyou:lang name='sys11' /}：{$field.title} </a>
+        {eyou:else /}
+        <a >{eyou:lang name='sys11' /}：{eyou:lang name='sys10' /}</a>
+        {/eyou:prenext}
+        </span>
+        <span class="to_next col-xs-12 col-sm-6 col-md-6">
+        {eyou:prenext get='next'}
+        <a href="{$field.arcurl}" title="{$field.title}"> {eyou:lang name='sys12' /}：{$field.title} </a>
+        {eyou:else /}
+        <a>{eyou:lang name='sys12' /}：{eyou:lang name='sys10' /}</a>
+        {/eyou:prenext}
+        </span>
+        </div>
+      </div>
+    </div>
+    <!-- left -->
+    {eyou:include file="left.htm" /}
+  </div>
+</div>
+{eyou:include file="footer.htm" /}
+</body>
+</html>

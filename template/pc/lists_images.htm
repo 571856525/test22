@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$eyou.field.seo_title}</title>
+<meta name="description" content="{$eyou.field.seo_description}" />
+<meta name="keywords" content="{$eyou.field.seo_keywords}" />
+<link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta name="applicable-device"content="pc,mobile">
+{eyou:static file="skin/css/bootstrap.css" /}
+{eyou:static file="skin/css/bxslider.css" /}
+{eyou:static file="skin/css/style.css" /}
+{eyou:static file="skin/js/jquery.min.js" /}
+{eyou:static file="skin/js/bxslider.min.js" /}
+{eyou:static file="skin/js/common.js" /}
+{eyou:static file="skin/js/bootstrap.js" /}
+<!--[if lt IE 9]>
+{eyou:static file="skin/js/html5shiv.min.js" /}
+{eyou:static file="skin/js/respond.min.js" /}
+<![endif]-->
+</head>
+<body>
+{eyou:include file="header.htm" /}
+<div class="page_bg" style="background: url({eyou:ad aid='3'}{$field.litpic}{/eyou:ad}) center top no-repeat;"></div>
+<!-- main -->
+<div class="container">
+  <div class="row"><!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+      <div class="list_box">
+        <h2 class="left_h2">{$eyou.field.typename}</h2>
+        <div class="product_list product_list2">
+          {eyou:list pagesize='12' titlelen='40'}
+          <div class="col-sm-4 col-md-3 col-mm-6 product_img"><a href="{$field.arcurl}"><img  src="{$field.litpic}" class="img-thumbnail" alt="{$field.title}"/></a>
+            <p class="product_title"><a href="{$field.arcurl}" title="{$field.title}">{$field.title}</a></p>
+          </div>
+          {/eyou:list} 
+        </div>
+        <div class="page">{eyou:pagelist listitem='index,pre,pageno,next,end' listsize='1' /}</div>
+      </div>
+    </div>
+    <!-- left -->
+    {eyou:include file="left.htm" /}
+  </div>
+</div>
+{eyou:include file="footer.htm" /}
+</body>
+</html>
